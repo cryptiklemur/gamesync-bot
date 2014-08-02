@@ -1,6 +1,0 @@
-name: GodBot
-main: me.orbz.gb.gotbot.main
-version: 1.0
-commands:
-  bab:
-  buildabot:
