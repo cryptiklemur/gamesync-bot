@@ -31,9 +31,6 @@ public class ChatListener implements Listener
 
         final Player player = event.getPlayer();
 
-
-
-        // Set player names equal to their skin... Hopefully.
         ConfigurationSection section = plugin.getConfig().getConfigurationSection("nicknames");
         Map<String, Object> map = section.getValues(false);
 
@@ -100,19 +97,13 @@ public class ChatListener implements Listener
             return;
         }
 
+        ConfigurationSection section = plugin.getConfig().getConfigurationSection("items");
+        ConfigurationSection items = section.getConfigurationSection(message.toLowerCase());
+        if (items != null) {
+            Map<String, Object> map = items.getValues(false);
 
-        // Rewrite this piece to not use a for loop
-        for (int j = 0; j < 100; j++) {
-            if (message.equalsIgnoreCase(ChatListener.plugin.getConfig().getString("input-" + j))) {
-                String[] response = ChatListener.plugin.getConfig().getString("response-" + j).split("\\s+");
-                if (response[0].equals("give")) {
-                    Bukkit.getServer().dispatchCommand(console, "give " + player.getName() + " " + response[1]);
-                } else {
-                    player.sendMessage(plugin.getMessage(ChatListener.plugin.getConfig().getString("response-" + j)));
-                }
-
-                return;
-            }
+            plugin.getLogger().info(map.toString());
+            Bukkit.getServer().dispatchCommand(console, "give " + player.getName() + " " + map.get("id").toString() + " " + map.get("count").toString());
         }
     }
 }

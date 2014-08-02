@@ -14,3 +14,64 @@ nicknames:
     gamesync20: Link
     gamesyncgaming: MasterChief
     ericsdpchelp: CaptainAmerica
+items:
+    wood:
+        id: 17
+        count: 1
+    food:
+        id: 297
+        count: 1
+    cake:
+        id: 354
+        count: 1
+    bed:
+        id: 355
+        count: 1
+    dsword:
+        id: 276
+        count: 1
+    dshovel:
+        id: 277
+        count: 1
+    dpickaxe:
+        id: 278
+        count: 1
+    daxe:
+        id: 279
+        count: 1
+    dhelmet:
+        id: 310
+        count: 1
+    dchest:
+        id: 311
+        count: 1
+    dleggings:
+        id: 312
+        count: 1
+    dboots:
+        id: 313
+        count: 1
+    diamonds:
+        id: 264
+        count: 64
+    bucket:
+        id: 325
+        count: 1
+    bow:
+        id: 261
+        count: 1
+    arrows:
+        id: 262
+        count: 64
+    torch:
+        id: 50
+        count: 64
+    iron:
+        id: 265
+        count: 64
+    coal:
+        id: 263
+        count: 64
+    firework:
+        id: 301
+        count: 1
