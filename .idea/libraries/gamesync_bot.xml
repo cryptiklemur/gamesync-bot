@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="gamesync-bot">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/gamesync-bot.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

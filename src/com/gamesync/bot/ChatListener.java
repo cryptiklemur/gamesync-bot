@@ -1,5 +1,7 @@
 package com.gamesync.bot;
 
+import net.minecraft.server.v1_7_R4.EntityTracker;
+import net.minecraft.server.v1_7_R4.WorldServer;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.ConfigurationSection;
@@ -24,12 +26,15 @@ public class ChatListener implements Listener
         plugin = instance;
     }
 
-    @EventHandler(priority = EventPriority.LOW)
+    @EventHandler(priority = EventPriority.HIGHEST)
     public void onPlayerJoin (final PlayerJoinEvent event)
     {
         plugin.getLogger().info("Player joined!");
 
         final Player player = event.getPlayer();
+        final ConsoleCommandSender console = Bukkit.getConsoleSender();
+        final WorldServer world = (WorldServer) player.getWorld();
+        final EntityTracker tracker = world.getTracker();
 
         ConfigurationSection section = plugin.getConfig().getConfigurationSection("nicknames");
         Map<String, Object> map = section.getValues(false);
@@ -39,12 +44,13 @@ public class ChatListener implements Listener
             player.setCustomName(map.get(player.getName().toLowerCase()).toString());
             player.setCustomNameVisible(true);
             player.setPlayerListName(map.get(player.getName().toLowerCase()).toString());
+            player.performCommand("/nick " + map.get(player.getName().toLowerCase()).toString());
         }
 
         player.sendMessage(plugin.getMessage("Welcome to Gamesync " + player.getDisplayName() + "!"));
     }
 
-    @EventHandler(priority = EventPriority.HIGH)
+    @EventHandler(priority = EventPriority.HIGHEST)
     public void onPlayerChat (final AsyncPlayerChatEvent event)
     {
         final Player player = event.getPlayer();

@@ -1,6 +1,6 @@
 name: GameSync
 main: com.gamesync.bot.GameSyncBot
-version: 2.0.1.9
+version: 2.0.2
 commands:
   bab:
   buildabot:
