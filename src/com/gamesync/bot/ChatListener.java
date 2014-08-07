@@ -36,6 +36,8 @@ public class ChatListener implements Listener
 
         if (map.containsKey(player.getName().toLowerCase())) {
             player.setDisplayName(map.get(player.getName().toLowerCase()).toString());
+            player.setCustomName(map.get(player.getName().toLowerCase()).toString());
+            player.setCustomNameVisible(true);
             player.setPlayerListName(map.get(player.getName().toLowerCase()).toString());
         }
 
